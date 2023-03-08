@@ -1,5 +1,6 @@
 import sys
-from collections import namedtuple 
+from collections import namedtuple
+import tkinter as tk 
 
 points=0
 

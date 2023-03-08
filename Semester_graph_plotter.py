@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-import numpy as np
+#import numpy as np
 import sys
 
 #You could use array, but simply using lists is more efficient
@@ -10,20 +10,22 @@ grades = []
 #And returns the new list of grades and courses
 def addCourses():
     new_course=input("Name of the course: ")
-    new_grade= input("Grade of the course: ")
-    courses.append(str(new_course))
-    grades.append(str(new_grade))
+    new_grade= float(input("Grade of the course: "))
+    courses.append(new_course)
+    grades.append(new_grade)
     return courses,grades
-     
 
 
 def plot():
+    
+    #The bar starts at the lowest valu. Fix this later
+    plt.bar(courses, grades)
+
+    plt.ylim(bottom=0, top=20) 
+
     plt.title=("1st semestre plot")
     plt.xlabel=("Course")
     plt.ylabel=("Grade")
-    #The bar starts at the lowest valu. Fix this later
-    plt.ylim(ymin=0, ymax=20)
-    plt.bar(courses, grades)
     plt.show()
 
 
@@ -38,7 +40,6 @@ def interface():
         sys.exit()
     if str(option) == "1":
         addCourses()
-
     if str(option) == "2":
         plot()
     else:
