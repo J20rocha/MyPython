@@ -1,27 +1,37 @@
 import matplotlib.pyplot as plt
-#import numpy as np
 import sys
 
 #You could use array, but simply using lists is more efficient
-courses = []
-grades = []
+courses = ['erg', 'wrg', 'rjd']
+grades = [5, 13, 16]
 
 #This functions adds the name of the new course to the list and simultaneously asks for the respective grade, to save lines
 #And returns the new list of grades and courses
 def addCourses():
     new_course=input("Name of the course: ")
-    new_grade= float(input("Grade of the course: "))
-    courses.append(new_course)
-    grades.append(new_grade)
+    new_grade= int(input("Grade of the course: "))
+    if new_grade<0 or new_grade>20:
+        print("Invalid value")
+    else:    
+        courses.append(new_course)
+        grades.append(new_grade)
     return courses,grades
 
 
 def plot():
     
-    #The bar starts at the lowest valu. Fix this later
     plt.bar(courses, grades)
 
-    plt.ylim(bottom=0, top=20) 
+    plt.ylim(bottom=0, top=20) #Sets the limits of the grid
+
+    #Simple syntax that evaluates the grade
+    for x in range(len(grades)):
+     if grades[x]>= 15 and grades[x]<=20:
+         plt.bar(x, grades[x], color='green')
+     if grades[x]>=10 and grades[x] <15:
+         plt.bar(x, grades[x], color='yellow')
+     if grades[x]<10: plt.bar(x, grades[x], color= 'red')
+        
 
     plt.title=("1st semestre plot")
     plt.xlabel=("Course")
@@ -30,7 +40,7 @@ def plot():
 
 
 def interface():
-
+#We'll add several options
     print("0. Exit")
     print("1. Add courses.")
     print("2. Plot")
@@ -46,7 +56,7 @@ def interface():
         print("Invalid option")
     
        
-
+#Main function
 if __name__ == "__main__": 
     
     while True:
