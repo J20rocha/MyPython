@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import sys
 
 #You could use array, but simply using lists is more efficient
-courses = ['erg', 'wrg', 'rjd']
-grades = [5, 13, 16]
+courses = []
+grades = []
 
 #This functions adds the name of the new course to the list and simultaneously asks for the respective grade, to save lines
 #And returns the new list of grades and courses
